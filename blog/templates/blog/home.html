@@ -1,0 +1,12 @@
+{% extends 'blog/layout.html' %}
+
+{% block  body%}
+<h1>blog home</h1>
+{% for post in posts  %}
+    <h1>{{post.name}}</h1>
+    <p>{{post.title}} posted on {{post.date_published}}
+    <p>{{post.content}}
+{% endfor %}
+{% endblock  %}
+        
+       
