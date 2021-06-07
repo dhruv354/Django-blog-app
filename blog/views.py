@@ -6,13 +6,13 @@ from django.http import HttpResponse
 
 posts = [
     {
-        'name': 'dhruv singhal',
+        'authoe': 'dhruv singhal',
         'title': 'time management',
         'body': 'dm me for effective time management strategies',
         'date_published' : '2nd Jan, 2021'
     },
     {
-        'name': 'aayush singhal',
+        'author': 'aayush singhal',
         'title': 'JEE preparation',
         'body': 'dm me for effective time JEE strategies',
         'date_published' : '8th Jan, 2021'
