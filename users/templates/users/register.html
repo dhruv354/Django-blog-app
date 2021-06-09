@@ -1,12 +1,23 @@
 {% extends 'blog/layout.html' %} 
 {% load crispy_forms_tags %}
 {% block body %}
-<div class="content-section">
-  <form method="POST">
+<div class="content-section p-20">
+  <form method="POST" class='p-30'>
     {% csrf_token %}
-    <fieldset class="form-group">
+    <fieldset class="form-group p-30">
       <legend class="border-bottom mb-4">Join Today</legend>
-      {{form|crispy}}
+      {{ form|crispy }}
+        {% comment %} {% for field in form %}
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="{{ field.name }}">{{ field.label }} : </label>
+
+            <div class="col-sm-8">
+                {{ field|crispy}}
+            </div>
+        </div>
+
+        {% endfor %} {% endcomment %}
     </fieldset>
     <div class="form-group">
       <button class="btn btn-outline-info" type="submit">Submit</button>
@@ -15,7 +26,7 @@
   <div class='border-top pt-3'>
       <small class='text-muted'>
       Already have a account? 
-      <a class='ml-2' href='#'>Sign in</a>
+      <a class='ml-2' href='{% url 'login' %}'>Sign in</a>
     </small>
   </div>
 </div>
