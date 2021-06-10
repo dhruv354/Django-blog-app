@@ -7,17 +7,6 @@
     <fieldset class="form-group p-30">
       <legend class="border-bottom mb-4">Join Today</legend>
       {{ form|crispy }}
-        {% comment %} {% for field in form %}
-
-        <div class="form-group">
-            <label class="col-sm-4 control-label" for="{{ field.name }}">{{ field.label }} : </label>
-
-            <div class="col-sm-8">
-                {{ field|crispy}}
-            </div>
-        </div>
-
-        {% endfor %} {% endcomment %}
     </fieldset>
     <div class="form-group">
       <button class="btn btn-outline-info" type="submit">Submit</button>
