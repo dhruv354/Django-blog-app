@@ -1,31 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView, 
+    DetailView, 
+    CreateView
+)
 # Create your views here.
 
-#post array of dictionary
-
-posts = [
-    {
-        'authoe': 'dhruv singhal',
-        'title': 'time management',
-        'body': 'dm me for effective time management strategies',
-        'date_published' : '2nd Jan, 2021'
-    },
-    {
-        'author': 'aayush singhal',
-        'title': 'JEE preparation',
-        'body': 'dm me for effective time JEE strategies',
-        'date_published' : '8th Jan, 2021'
-    }
-]
 
 def home(request):
     context = {
         'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
+
+def about(request):
+    return render(request, 'blog/about.html')
 
 class PostView(ListView):
     model = Post
@@ -36,5 +27,12 @@ class PostView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-def about(request):
-    return render(request, 'blog/about.html')
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'body']
+
+    #to add author before validation
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+ 
