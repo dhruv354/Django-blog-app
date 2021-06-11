@@ -37,7 +37,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     #to add author before validation
     def form_valid(self, form):
         form.instance.author = self.request.user
-        super().form_valid(form)
+        return super().form_valid(form)
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
@@ -46,7 +46,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     #to add author before validation
     def form_valid(self, form):
         form.instance.author = self.request.user
-        super().form_valid(form)
+        return super().form_valid(form)
 
     def test_func(self):
         post = self.get_object()
