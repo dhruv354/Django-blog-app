@@ -9,6 +9,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -26,6 +27,7 @@ class PostView(ListView):
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_published']
+    paginate_by = 2
 
 class PostDetailView(DetailView):
     model = Post

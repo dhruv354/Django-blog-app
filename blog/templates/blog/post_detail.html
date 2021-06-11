@@ -9,8 +9,8 @@
         <a class="mr-2" href="#">{{ object.author }}</a>
         <small class="text-muted">{{ object.date_published|date:"F d, Y"}}</small>
         {% if object.author == user %}
-        <a href="{% url 'post-update' object.id %}" >Edit</a>
-        <a href="{% url 'post-delete' object.id %}" >Delete</a>
+        <a class ='btn btn-secondary' href="{% url 'post-update' object.id %}" >Edit</a>
+        <a class ='btn btn-danger' href="{% url 'post-delete' object.id %}" >Delete</a>
         {% endif %}
         </div>
         <h2 class="article-title" >{{ object.title }}</h2>
