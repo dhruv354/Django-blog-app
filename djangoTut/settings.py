@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import django_heroku
 
 from pathlib import Path
 import os
@@ -85,7 +85,7 @@ DATABASES = {
         'USER' : 'myprojectuser',
         'PASSWORD' : 'Akbar@123456',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
         # 'default-character-se' : 'utf8',
        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -149,5 +149,5 @@ LOGIN_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import django_heroku
+
 django_heroku.settings(locals())
