@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post
+from django.contrib.auth.models import User
 from django.views.generic import (
     ListView, 
     DetailView, 
@@ -14,6 +15,8 @@ from django.core.paginator import Paginator
 
 
 def home(request):
+    if not User.is_authenticated():
+        return redirect('login')
     context = {
         'posts': Post.objects.all()
     }
