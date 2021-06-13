@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,7 @@ print(BASE_DIR)
 SECRET_KEY = 'django-insecure-_gz=n8$da!my63z@e*$t&0gqwj0qncfg413-lygdf2vs5$6_k6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['djangoblog-project.herokuapp.com']
 
